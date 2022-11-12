@@ -1,4 +1,5 @@
 import 'package:covid_app/components/satstistics.dart';
+import 'package:covid_app/pages/allCountries.dart';
 import 'package:covid_app/pages/brasil.dart';
 import 'package:covid_app/pages/dateSearch.dart';
 import 'package:covid_app/pages/brasilEstados.dart';
@@ -23,6 +24,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: ((context) => Brasil()));
       case '/paises/filtro':
         return MaterialPageRoute(builder: ((context) => CountriesFilter()));
+              case '/paises/all':
+        return MaterialPageRoute(builder: ((context) => AllCountries()));
       case '/statisticsCountry':
         return MaterialPageRoute(builder: ((context) => StatisticPage(args: args)));
       default:

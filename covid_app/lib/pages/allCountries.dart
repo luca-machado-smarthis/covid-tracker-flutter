@@ -1,0 +1,18 @@
+import 'package:covid_app/components/satstistics%20copy.dart';
+import 'package:covid_app/pages/statisticsPage.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
+
+class AllCountries extends StatefulWidget {
+  const AllCountries({super.key});
+
+  @override
+  State<AllCountries> createState() => _AllCountriesState();
+}
+
+class _AllCountriesState extends State<AllCountries> {
+  @override
+  Widget build(BuildContext context) {
+    return StatisticsList(args: 'countries');
+  }
+}

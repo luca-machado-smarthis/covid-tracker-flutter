@@ -1,3 +1,4 @@
+import 'package:covid_app/components/satstistics%20copy.dart';
 import 'package:covid_app/components/satstistics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -41,15 +42,15 @@ class _DateSearchState extends State<DateSearch> {
                 String converted =
                     '${date?.year.toString()}${(date?.month.toString())?.length == 2 ? date?.month.toString() : '0${date?.month.toString()}'}${(date?.day.toString())?.length == 2 ? date?.day.toString() : '0${date?.day.toString()}'}';
                 //todo criar pagina especifica pros estados
-                _statistics = Statistics(args: 'brazil/${converted}');
+                _statistics = StatisticsList(args: 'brazil/$converted');
               });
             });
           },
         ),
-        Container(
+        SizedBox(
+          height: 400,
           child: _statistics,
         ),
-        Text('uga'),
       ]),
     );
   }
