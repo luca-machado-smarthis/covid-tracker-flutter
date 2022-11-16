@@ -6,7 +6,7 @@ import 'package:covid_app/components/satstistics.dart';
 void main() {
   runApp(MaterialApp(
     title: "Navegação",
-    initialRoute: '/paises/all',
+    initialRoute: '/',
     onGenerateRoute: RouteGenerator.generateRoute,
   ));
 }

@@ -26,9 +26,17 @@ class _DateSearchState extends State<DateSearch> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Busca por estado')),
-      body: Column(children: [
-        ElevatedButton(
+      appBar: AppBar(
+      title: Text('CovidT - Busca por Data',),
+      backgroundColor: Color.fromARGB(255, 56, 226, 56)
+      
+      ),
+      body: Center(
+        child: Column(  
+        children: [
+        Container(
+          margin: const EdgeInsets.all(16),
+          child:ElevatedButton(
           child: Text('Escolha uma data'),
           onPressed: () {
             showDatePicker(
@@ -41,17 +49,16 @@ class _DateSearchState extends State<DateSearch> {
                 _dateTime = date;
                 String converted =
                     '${date?.year.toString()}${(date?.month.toString())?.length == 2 ? date?.month.toString() : '0${date?.month.toString()}'}${(date?.day.toString())?.length == 2 ? date?.day.toString() : '0${date?.day.toString()}'}';
-                //todo criar pagina especifica pros estados
                 _statistics = StatisticsList(args: 'brazil/$converted');
               });
             });
           },
-        ),
+        )),
         SizedBox(
           height: 400,
           child: _statistics,
         ),
-      ]),
+      ])),
     );
   }
 }

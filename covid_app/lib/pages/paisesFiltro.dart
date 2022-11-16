@@ -211,7 +211,10 @@ class _CountriesFilterState extends State<CountriesFilter> {
     ).toList();
 
     _selectedCountry = countries[0];
-    _statistics = Text('Escolha o país acima');
+    _statistics = Center(
+      child: const Text(
+        'Escolha o país acima', 
+        style: TextStyle(fontSize: 24),));
 
     super.initState();
   }
@@ -219,7 +222,10 @@ class _CountriesFilterState extends State<CountriesFilter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Busca por estado')),
+      appBar: AppBar(
+        title: Text('CovidT - Busca por país'),
+        backgroundColor: Color.fromARGB(255, 231, 27, 170),
+        ),
       body: ListView(children: [
         Container(
           child: DropdownButton<String>(

@@ -5,7 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 
 class StatisticPage extends StatefulWidget {
   final dynamic args;
-  
+
   const StatisticPage({super.key, this.args});
 
   @override
@@ -15,10 +15,15 @@ class StatisticPage extends StatefulWidget {
 class _StatisticPageState extends State<StatisticPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text('Covid Tracker')),
-    body: ListView(children: [
-      Statistics(args: widget.args),
-    ],)
-    );
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('CovidT ${widget.args}'),
+          backgroundColor: Color.fromARGB(255, 56, 226, 56)
+        ),
+        body: ListView(
+          children: [
+            Statistics(args: widget.args),
+          ],
+        ));
   }
 }

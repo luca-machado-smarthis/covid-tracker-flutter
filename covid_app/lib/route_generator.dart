@@ -12,22 +12,20 @@ class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final args = settings.arguments;
     switch (settings.name) {
+      case '/':
+        return MaterialPageRoute(builder: ((context) => Home()));
+      case '/brasil':
+        return MaterialPageRoute(builder: ((context) => Brasil()));
       case '/brasil/estados':
         return MaterialPageRoute(builder: ((context) => BrasilEstados()));
       case '/brasil/data':
         return MaterialPageRoute(builder: ((context) => DateSearch()));
-      case '/brasil':
-        return MaterialPageRoute(builder: ((context) => Home()));
-      case '/brasil':
-        return MaterialPageRoute(builder: ((context) => Brasil()));
-      case '/paises':
-        return MaterialPageRoute(builder: ((context) => Brasil()));
-      case '/paises/filtro':
-        return MaterialPageRoute(builder: ((context) => CountriesFilter()));
-              case '/paises/all':
-        return MaterialPageRoute(builder: ((context) => AllCountries()));
       case '/statisticsCountry':
         return MaterialPageRoute(builder: ((context) => StatisticPage(args: args)));
+      case '/paises-filtro':
+        return MaterialPageRoute(builder: ((context) => CountriesFilter()));
+      case '/paises-all':
+        return MaterialPageRoute(builder: ((context) => AllCountries()));
       default:
         return MaterialPageRoute(builder: ((context) => Home()));
     }

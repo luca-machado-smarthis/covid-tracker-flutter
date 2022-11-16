@@ -50,6 +50,7 @@ class _BrasilEstadosState extends State<BrasilEstados> {
   late StateOption? _selectedState;
   late dynamic _statistics;
   late dynamic uga;
+  bool _selected_display = false;
 
   @override
   void initState() {
@@ -65,7 +66,7 @@ class _BrasilEstadosState extends State<BrasilEstados> {
     ).toList();
 
     _selectedState = states[0];
-    _statistics = Text('Escolha o estado acima');
+    _statistics = Text('');
 
     super.initState();
   }
@@ -73,7 +74,9 @@ class _BrasilEstadosState extends State<BrasilEstados> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Busca por estado')),
+      appBar: AppBar(
+          title: Text('CovidT - Busca por estado'),
+          backgroundColor: Color.fromARGB(255, 56, 226, 56)),
       body: ListView(children: [
         Container(
           child: DropdownButton<StateOption>(
@@ -82,12 +85,16 @@ class _BrasilEstadosState extends State<BrasilEstados> {
             onChanged: (newValue) => {
               _selectedState = newValue,
               _statistics = Statistics(args: 'brazil/uf/${_selectedState?.uf}'),
+              _selected_display = true,
               setState(() {})
             },
           ),
         ),
         _statistics,
-        Text(('${_selectedState?.state}')),
+        Text(
+          ('${_selected_display? '' : 'selecione seu estado acima'}'),
+          style: TextStyle(fontSize: 24),
+        ),
       ]),
     );
   }

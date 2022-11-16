@@ -12,7 +12,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
-      title: Text('Covid Tracker'),
+      title: Text('CovidT'),
       backgroundColor: Color.fromARGB(255, 70, 70, 70)
         ),
       body: Center(
@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
       child: OutlinedButton(
       onPressed: (() {
         Navigator.of(context).pushNamed(
-          '/paises',
+          '/paises-all',
         );
       }),
       child: Text('Todos os Países')
@@ -50,7 +50,7 @@ class _HomeState extends State<Home> {
       child: OutlinedButton(
       onPressed: (() {
         Navigator.of(context).pushNamed(
-          '/filtro',
+          '/paises-filtro',
         );
       }),
       child: Text('Consultar por País')

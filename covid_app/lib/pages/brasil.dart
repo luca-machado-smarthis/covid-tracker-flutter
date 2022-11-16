@@ -16,7 +16,7 @@ class _BrasilState extends State<Brasil> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
-        title: Text('Covid Tracker - Brasil'),
+        title: Text('CovidT - Brasil'),
         backgroundColor: Color.fromARGB(255, 56, 226, 56),
         ),
       body: Center(
@@ -58,7 +58,7 @@ class _BrasilState extends State<Brasil> {
       child: OutlinedButton(
       onPressed: (() {
         Navigator.of(context).pushNamed(
-          '/statisticsCountry'
+          '/brasil/data'
         );
       }),
       child: Text('Consultar por Data')
