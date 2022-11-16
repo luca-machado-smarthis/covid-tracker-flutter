@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Brasil extends StatefulWidget {
@@ -9,15 +8,14 @@ class Brasil extends StatefulWidget {
 }
 
 class _BrasilState extends State<Brasil> {
-  String? _date;
-  String _place = 'brazil';
+  final String _place = 'brazil';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
-        title: Text('CovidT - Brasil'),
-        backgroundColor: Color.fromARGB(255, 56, 226, 56),
+        title: const Text('CovidT - Brasil'),
+        backgroundColor: const Color.fromARGB(255, 56, 226, 56),
         ),
       body: Center(
         child: Column(
@@ -25,8 +23,8 @@ class _BrasilState extends State<Brasil> {
       children: [
       Container(
         width: 200,
-        margin: EdgeInsets.all(16),
-        padding: EdgeInsets.all(2),
+        margin: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(2),
           child: OutlinedButton(
           onPressed: (() {
               Navigator.of(context).pushNamed(
@@ -34,13 +32,13 @@ class _BrasilState extends State<Brasil> {
                 arguments: _place,
               );
             }),
-           child: Text('Brasil Geral')
+           child: const Text('Brasil Geral')
            ),
       ),
     Container(
       width: 200,
-      margin: EdgeInsets.all(16),
-      padding: EdgeInsets.all(2),
+      margin: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(2),
       child: OutlinedButton(
       onPressed: (() {
         Navigator.of(context).pushNamed(
@@ -48,20 +46,20 @@ class _BrasilState extends State<Brasil> {
           arguments: 'brazil'
         );
       }),
-      child: Text('Consulta por estado')
+      child: const Text('Consulta por estado')
       ),
     ) ,
     Container(
       width: 200,
-      margin: EdgeInsets.all(16),
-      padding: EdgeInsets.all(2),
+      margin: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(2),
       child: OutlinedButton(
       onPressed: (() {
         Navigator.of(context).pushNamed(
           '/brasil/data'
         );
       }),
-      child: Text('Consultar por Data')
+      child: const Text('Consultar por Data')
       ),
     )  
       ])),

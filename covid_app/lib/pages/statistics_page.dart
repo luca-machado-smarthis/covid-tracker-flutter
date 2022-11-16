@@ -1,7 +1,5 @@
-import 'package:covid_app/components/satstistics.dart';
+import 'package:covid_app/components/statistics.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class StatisticPage extends StatefulWidget {
   final dynamic args;
@@ -18,7 +16,7 @@ class _StatisticPageState extends State<StatisticPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text('CovidT ${widget.args}'),
-          backgroundColor: Color.fromARGB(255, 56, 226, 56)
+          backgroundColor: const Color.fromARGB(255, 56, 226, 56)
         ),
         body: ListView(
           children: [

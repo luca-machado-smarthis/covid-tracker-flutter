@@ -1,9 +1,5 @@
-import 'package:covid_app/components/satstistics%20copy.dart';
-import 'package:covid_app/components/satstistics.dart';
+import 'package:covid_app/components/statistics_list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:intl/intl.dart';
 
 class DateSearch extends StatefulWidget {
   const DateSearch({super.key});
@@ -19,7 +15,7 @@ class _DateSearchState extends State<DateSearch> {
   @override
   void initState() {
     _dateTime = DateTime.now();
-    _statistics = Text('escolha uma data');
+    _statistics = const Text('escolha uma data');
     super.initState();
   }
 
@@ -27,8 +23,8 @@ class _DateSearchState extends State<DateSearch> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-      title: Text('CovidT - Busca por Data',),
-      backgroundColor: Color.fromARGB(255, 56, 226, 56)
+      title: const Text('CovidT - Busca por Data',),
+      backgroundColor: const Color.fromARGB(255, 56, 226, 56)
       
       ),
       body: Center(
@@ -37,7 +33,7 @@ class _DateSearchState extends State<DateSearch> {
         Container(
           margin: const EdgeInsets.all(16),
           child:ElevatedButton(
-          child: Text('Escolha uma data'),
+          child: const Text('Escolha uma data'),
           onPressed: () {
             showDatePicker(
                     context: context,

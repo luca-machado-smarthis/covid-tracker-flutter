@@ -1,4 +1,4 @@
-import 'package:covid_app/components/satstistics.dart';
+import 'package:covid_app/components/statistics.dart';
 import 'package:flutter/material.dart';
 
 
@@ -199,7 +199,7 @@ class _CountriesFilterState extends State<CountriesFilter> {
   'West Bank and Gaza',   'Winter Olympics 2022',
   'Yemen',                'Zambia',
   'Zimbabwe'
-];;
+];
 
     _stateItems = countries.map<DropdownMenuItem<String>>(
       (String countryOption) {
@@ -211,8 +211,8 @@ class _CountriesFilterState extends State<CountriesFilter> {
     ).toList();
 
     _selectedCountry = countries[0];
-    _statistics = Center(
-      child: const Text(
+    _statistics = const Center(
+      child: Text(
         'Escolha o país acima', 
         style: TextStyle(fontSize: 24),));
 
@@ -223,21 +223,20 @@ class _CountriesFilterState extends State<CountriesFilter> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('CovidT - Busca por país'),
-        backgroundColor: Color.fromARGB(255, 231, 27, 170),
+        title: const Text('CovidT - Busca por país'),
+        backgroundColor:const Color.fromARGB(255, 231, 27, 170),
         ),
       body: ListView(children: [
-        Container(
-          child: DropdownButton<String>(
+          DropdownButton<String>(
             items: _stateItems,
             value: _selectedCountry,
             onChanged: (newValue) => {
               _selectedCountry = newValue,
-              _statistics = Statistics(args: '/${_selectedCountry}'),
+              _statistics = Statistics(args: '/$_selectedCountry'),
               setState(() {})
             },
           ),
-        ),
+
         _statistics,
       ]),
     );

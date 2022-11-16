@@ -12,48 +12,48 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
-      title: Text('CovidT'),
-      backgroundColor: Color.fromARGB(255, 70, 70, 70)
+      title: const Text('CovidT'),
+      backgroundColor: const Color.fromARGB(255, 70, 70, 70)
         ),
       body: Center(
         child: Column(children: [
         Container(
           width: 200,
-          margin: EdgeInsets.all(16),
-          padding: EdgeInsets.all(2),
+          margin: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(2),
           child: OutlinedButton(
           onPressed: (() {
               Navigator.of(context).pushNamed(
                 '/brasil',
               );
             }),
-           child: Text('Brasil')
+           child: const Text('Brasil')
            ),
       ),
     Container(
       width: 200,
-      margin: EdgeInsets.all(16),
-      padding: EdgeInsets.all(2),
+      margin: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(2),
       child: OutlinedButton(
       onPressed: (() {
         Navigator.of(context).pushNamed(
           '/paises-all',
         );
       }),
-      child: Text('Todos os Países')
+      child: const Text('Todos os Países')
       ),
     ) ,
     Container(
       width: 200,
-      margin: EdgeInsets.all(16),
-      padding: EdgeInsets.all(2),
+      margin: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(2),
       child: OutlinedButton(
       onPressed: (() {
         Navigator.of(context).pushNamed(
           '/paises-filtro',
         );
       }),
-      child: Text('Consultar por País')
+      child: const Text('Consultar por País')
       ),
     )  
       ])),

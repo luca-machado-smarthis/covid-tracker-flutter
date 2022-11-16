@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CasePais {
   String place = '';
@@ -12,6 +9,7 @@ class CasePais {
   int? deaths;
   int? suspected;
   int? recovered;
+  // ignore: non_constant_identifier_names
   String updated_at;
 
   CasePais(
@@ -21,6 +19,7 @@ class CasePais {
       this.deaths,
       this.suspected,
       this.recovered,
+      // ignore: non_constant_identifier_names
       required this.updated_at});
 
   factory CasePais.fromJson(Map<String, dynamic> json) {
@@ -53,7 +52,7 @@ class Result {
 }
 
 Future<Result> apiCall(dynamic args) async {
-  var url = Uri.https("covid19-brazil-api.now.sh", "/api/report/v1/${args}");
+  var url = Uri.https("covid19-brazil-api.now.sh", "/api/report/v1/$args");
   var response = await http.get(url);
   return Result.fromJson(jsonDecode(response.body));
 }
@@ -88,22 +87,22 @@ class _StatisticsListState extends State<StatisticsList> {
           if (snapshot.hasData) {
             var data = snapshot.data;
             List<CasePais> cards = List.generate(data!.data.length, (idx) {
-              var idx_data = data.data[idx];
+              var idxData = data.data[idx];
 
               return CasePais(
-                  place: idx_data.place,
-                  cases: idx_data.cases,
-                  confirmed: idx_data.confirmed,
-                  deaths: idx_data.deaths,
-                  suspected: idx_data.suspected,
-                  recovered: idx_data.recovered,
-                  updated_at: idx_data.updated_at);
+                  place: idxData.place,
+                  cases: idxData.cases,
+                  confirmed: idxData.confirmed,
+                  deaths: idxData.deaths,
+                  suspected: idxData.suspected,
+                  recovered: idxData.recovered,
+                  updated_at: idxData.updated_at);
             });
             return ListView(
               children: cards.map((info) => card(info)).toList(),
             );
           } else {
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           }
         });
   }
@@ -112,21 +111,21 @@ class _StatisticsListState extends State<StatisticsList> {
 Widget card(info) {
   return Container(
     decoration: BoxDecoration(
-        border: Border.all(width: 2, color: Color.fromARGB(255, 229, 239, 155)),
+        border: Border.all(width: 2, color: const Color.fromARGB(255, 229, 239, 155)),
         borderRadius: BorderRadius.circular(8)),
     width: 450,
-    margin: EdgeInsets.all(16),
+    margin: const EdgeInsets.all(16),
     child: Column(
       children: [
         Text('${info.place}',
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold,color: Colors.black,decoration: TextDecoration.none)),
+            style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold,color: Colors.black,decoration: TextDecoration.none)),
         Padding(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text('Confirmado: ${info.confirmed}', style: TextStyle(fontSize: 16, color: Colors.black,decoration: TextDecoration.none, fontWeight: FontWeight.normal),),
-              Text('Morte: ${info.deaths}', style: TextStyle(fontSize: 16, color: Colors.black,decoration: TextDecoration.none, fontWeight: FontWeight.normal)),
+              Text('Confirmado: ${info.confirmed}', style: const TextStyle(fontSize: 16, color: Colors.black,decoration: TextDecoration.none, fontWeight: FontWeight.normal),),
+              Text('Morte: ${info.deaths}', style: const TextStyle(fontSize: 16, color: Colors.black,decoration: TextDecoration.none, fontWeight: FontWeight.normal)),
             ],
           ),
         )

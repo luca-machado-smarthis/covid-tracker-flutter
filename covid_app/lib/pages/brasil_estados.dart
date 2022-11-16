@@ -1,4 +1,4 @@
-import 'package:covid_app/components/satstistics.dart';
+import 'package:covid_app/components/statistics.dart';
 import 'package:flutter/material.dart';
 
 class StateOption {
@@ -50,7 +50,7 @@ class _BrasilEstadosState extends State<BrasilEstados> {
   late StateOption? _selectedState;
   late dynamic _statistics;
   late dynamic uga;
-  bool _selected_display = false;
+  bool _selectedDisplay = false;
 
   @override
   void initState() {
@@ -66,7 +66,7 @@ class _BrasilEstadosState extends State<BrasilEstados> {
     ).toList();
 
     _selectedState = states[0];
-    _statistics = Text('');
+    _statistics = const Text('');
 
     super.initState();
   }
@@ -75,25 +75,23 @@ class _BrasilEstadosState extends State<BrasilEstados> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text('CovidT - Busca por estado'),
-          backgroundColor: Color.fromARGB(255, 56, 226, 56)),
+          title: const Text('CovidT - Busca por estado'),
+          backgroundColor: const Color.fromARGB(255, 56, 226, 56)),
       body: ListView(children: [
-        Container(
-          child: DropdownButton<StateOption>(
+          DropdownButton<StateOption>(
             items: _stateItems,
             value: _selectedState,
             onChanged: (newValue) => {
               _selectedState = newValue,
               _statistics = Statistics(args: 'brazil/uf/${_selectedState?.uf}'),
-              _selected_display = true,
+              _selectedDisplay = true,
               setState(() {})
             },
           ),
-        ),
         _statistics,
         Text(
-          ('${_selected_display? '' : 'selecione seu estado acima'}'),
-          style: TextStyle(fontSize: 24),
+          (_selectedDisplay? '' : 'selecione seu estado acima'),
+          style: const TextStyle(fontSize: 24),
         ),
       ]),
     );
